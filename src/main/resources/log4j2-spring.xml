@@ -1,0 +1,47 @@
+<configuration>
+
+    <Properties>
+        <!--> MENTION LOGGING MODE HERE <-->
+        <Property name="logFormat" >
+            ${logging.mode:verbosePattern}
+        </Property>
+        <Property name="minimalPattern">%msg%n</Property>
+        <Property name="simplePattern">%d{yyyy-MM-dd HH:mm:ss} - %level - %msg%n</Property>
+        <Property name="verbosePattern">%d{yyyy-MM-dd HH:mm:ss} - %level - %logger{1} - %file - %line - %msg%n</Property>
+        <Property name="jsonPattern">
+            {
+            "timestamp": "%d{yyyy-MM-dd HH:mm:ss}",
+            "message": "%msg",
+            "level": "%level",
+            "package": "%logger",
+            "file": "%file",
+            "line": "%line",
+            "traceId": "${mdc:traceId:-${random:UUID}}",
+            "stackTrace": "%ex{full}"
+            }
+        </Property>
+        </Properties>
+         <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>${property:logFormat}</Pattern>
+            </PatternLayout>
+        </Console>
+        <RollingFile name="File" fileName="logs/journalApp.log" filePattern="logs/journalApp-%d{yyyy-MM-dd_HH-mm}.%i.log">
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+            <PatternLayout>
+                <Pattern>${property:logFormat}</Pattern>
+            </PatternLayout>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+
+</configuration>

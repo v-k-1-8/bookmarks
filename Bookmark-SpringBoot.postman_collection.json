@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "5277d8c6-4b3b-4318-bb6a-efebf7e54fe9",
+		"name": "Bookmark-SpringBoot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40122754",
+		"_collection_link": "https://springboot-9821.postman.co/workspace/24d4176f-671e-4ced-999f-5e614959b22b/collection/40122754-5277d8c6-4b3b-4318-bb6a-efebf7e54fe9?action=share&source=collection_link&creator=40122754"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "Retrieve a list of all users in the system"
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"name\": \"varun\",\r\n     \"dob\": \"2004-31-01T10:00:00\",\r\n     \"email\": \"vsefrearunlakhyani@gmail.com\",\r\n     \"address\": \"Roorkee\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/create-user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"create-user"
+							]
+						},
+						"description": "Add a new user to the system by providing their details"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/user/32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"32"
+							]
+						},
+						"description": "Retrieve a specific user using their unique ID as a path parameter"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/user/32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"32"
+							]
+						},
+						"description": "Deletes a specific user identified by their unique ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n     \"address\": \"halol\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/user/32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"32"
+							]
+						},
+						"description": "Updates the details of an existing user identified by their unique ID"
+					},
+					"response": []
+				}
+			],
+			"description": "All APIs regarding User"
+		},
+		{
+			"name": "Bookmark",
+			"item": [
+				{
+					"name": "Get All Bookmarks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/bookmarks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"bookmarks"
+							]
+						},
+						"description": "Retrieve a list of all bookmarks in the system"
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Bookmark",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"link\": \"https://codeforces.com\",\r\n     \"title\": \"Codeforces\",\r\n     \"note\": \"CP\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/create-bookmark/user/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"create-bookmark",
+								"user",
+								"9"
+							]
+						},
+						"description": "Add a new bookmark by providing its details"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bookmarks of a User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/bookmark/user/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"bookmark",
+								"user",
+								"9"
+							]
+						},
+						"description": "Retrieve all bookmarks that belong to the user identified by the provided user ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bookmark by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/bookmark/35",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"bookmark",
+								"35"
+							]
+						},
+						"description": "Retrieve a specific bookmark using its unique ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bookmark by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/bookmark/29",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"bookmark",
+								"29"
+							]
+						},
+						"description": "Delete a specific bookmark identified by its unique ID"
+					},
+					"response": []
+				}
+			],
+			"description": "All APIs regarding Bookmark"
+		},
+		{
+			"name": "Health-Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/health-check",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"health-check"
+					]
+				},
+				"description": "Health-Check"
+			},
+			"response": []
+		}
+	]
+}
